@@ -106,7 +106,7 @@ const Footer: React.FC = () => {
             <button
               onClick={() => {
                 const link = document.createElement('a');
-                link.href = '/CV.pdf';
+                link.href = `${import.meta.env.BASE_URL}CV.pdf`;
                 link.download = 'CV.pdf';
                 document.body.appendChild(link);
                 link.click();
@@ -124,6 +124,7 @@ const Footer: React.FC = () => {
               </svg>
               Download CV
             </button>
+
 
           </div>
         </div>
