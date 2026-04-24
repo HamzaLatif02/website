@@ -2,106 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-bg: #050505;
+  --color-accent: #1B9AAA;
+  --color-surface: #DDDBCB;
+  --color-bg-alt: #F5F1E3;
+  --color-text: #FFFFFF;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'DM Mono', monospace;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   * {
     box-sizing: border-box;
-  }
-}
-
-@layer utilities {
-  .font-display {
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
-  }
-
-  .bg-grid {
-    background-image:
-      linear-gradient(rgba(99, 102, 241, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
-  }
-
-  .text-gradient {
-    background: linear-gradient(135deg, #818cf8 0%, #22d3ee 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-gradient-warm {
-    background: linear-gradient(135deg, #a78bfa 0%, #818cf8 50%, #22d3ee 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, #6366f1 0%, #7c3aed 100%);
-    color: white;
-    font-weight: 600;
-    transition: all 0.2s ease;
-  }
-
-  .btn-primary:hover {
-    background: linear-gradient(135deg, #818cf8 0%, #8b5cf6 100%);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.45);
-  }
-
-  .card-dark {
-    background: #0e0e24;
-    border: 1px solid rgba(99, 102, 241, 0.12);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-  }
-
-  .card-dark:hover {
-    border-color: rgba(99, 102, 241, 0.35);
-    box-shadow: 0 0 40px rgba(99, 102, 241, 0.08);
-    transform: translateY(-2px);
-  }
-
-  .input-dark {
-    background: rgba(14, 14, 36, 0.8);
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    color: white;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .input-dark:focus {
-    outline: none;
-    border-color: rgba(99, 102, 241, 0.6);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-  }
-
-  .input-dark::placeholder {
-    color: rgba(148, 163, 184, 0.5);
-  }
-
-  .tag-chip {
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    background: rgba(99, 102, 241, 0.12);
-    color: #a5b4fc;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    white-space: nowrap;
-  }
-
-  .section-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #818cf8;
   }
 }
