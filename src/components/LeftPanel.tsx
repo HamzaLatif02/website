@@ -7,6 +7,7 @@ interface Props {
 
 const NAV_ITEMS = [
   { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
   { id: 'education', label: 'Education' },
   { id: 'projects', label: 'Projects' },
 ];
@@ -109,7 +110,7 @@ const LeftPanel: React.FC<Props> = ({ activeSection }) => {
           </svg>
         </a>
         <a
-          href="/CV.pdf"
+          href="/CV_HamzaLatif.pdf"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Download CV"

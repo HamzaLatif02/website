@@ -52,25 +52,10 @@
     "featured": false,
     "tags": ["ML & AI", "Computer Vision"],
     "technologies": ["TensorFlow", "PyTorch", "ResNet", "SE-ResNet", "FaceForensics++", "Python", "Tkinter"],
-    "image": "https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "image": "/screenshots/deepfake/result1.png",
     "links": {
       "live": null,
       "code": "https://github.com/HamzaLatif02/DeepfakeDetection",
-      "caseStudy": null
-    }
-  },
-  {
-    "id": "airvia-ticket-sales",
-    "title": "AirVia Air Ticket Sales",
-    "summary": "Java desktop application for an airline ticket sales business, built as a team project. Full layered architecture across 6 packages — GUI, Customer, DB, Ticket, Sale, and Report — with a MySQL backend and Swing UI. Supports role-based access for customers, travel advisors, and office managers, including ticket sales, account management, discount plans, commission reporting, and Excel export.",
-    "year": 2023,
-    "featured": false,
-    "tags": ["Full-Stack", "Systems"],
-    "technologies": ["Java", "MySQL", "Swing", "JDBC", "OOP design patterns"],
-    "image": "/screenshots/airvia/screenshot.png",
-    "links": {
-      "live": null,
-      "code": "https://github.com/HamzaLatif02/AirViaLtd_Project",
       "caseStudy": null
     }
   },
@@ -97,7 +82,7 @@
     "featured": false,
     "tags": ["Data Science", "ML & AI"],
     "technologies": ["Python", "scikit-learn", "XGBoost", "pandas", "NumPy", "Matplotlib"],
-    "image": "https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "image": "/screenshots/loan/accuracy_comparison.png",
     "links": {
       "live": null,
       "code": "https://github.com/HamzaLatif02/Loan_Prediction",

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import LeftPanel from './components/LeftPanel';
 import AboutSection from './components/AboutSection';
+import ExperienceSection from './components/ExperienceSection';
 import EducationSection from './components/EducationSection';
 import ProjectsSection from './components/ProjectsSection';
 import Footer from './components/Footer';
 import projectsData from './data/projects.json';
 import { Project } from './types';
 
-const SECTIONS = ['about', 'education', 'projects'];
+const SECTIONS = ['about', 'experience', 'education', 'projects'];
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
@@ -34,6 +35,7 @@ function App() {
         <LeftPanel activeSection={activeSection} />
         <main className="px-6 py-16 lg:px-16 lg:py-24">
           <AboutSection />
+          <ExperienceSection />
           <EducationSection />
           <ProjectsSection projects={projects} />
           <Footer />
