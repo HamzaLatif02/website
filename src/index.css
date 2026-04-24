@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #050505;
-  --color-accent: #1B9AAA;
-  --color-surface: #DDDBCB;
-  --color-bg-alt: #F5F1E3;
-  --color-text: #FFFFFF;
+  --color-bg: #04080F;
+  --color-accent: #507DBC;
+  --color-surface: #A1C6EA;
+  --color-bg-alt: #BBD1EA;
+  --color-muted: #DAE3E5;
 }
 
 @layer base {

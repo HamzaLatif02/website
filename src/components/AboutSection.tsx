@@ -8,7 +8,7 @@ const AboutSection: React.FC = () => (
     >
       About
     </p>
-    <div className="space-y-5 text-sm font-mono leading-relaxed max-w-xl" style={{ color: 'rgba(255,255,255,0.55)' }}>
+    <div className="space-y-5 text-sm font-mono leading-relaxed max-w-xl" style={{ color: 'rgba(218,227,229,0.55)' }}>
       <p>
         I'm a software engineer and data scientist based in the UK, with an MSc in Data Science
         (Distinction) from King's College London and a BSc in Computer Science (First Class) from
@@ -22,7 +22,6 @@ const AboutSection: React.FC = () => (
       </p>
       <p>
         I'm open to full-time roles in software engineering, data analysis, and data science.
-        When I'm not building, I'm usually reading, following football, or exploring the city.
       </p>
       <p>
         <a

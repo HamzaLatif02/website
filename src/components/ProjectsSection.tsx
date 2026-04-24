@@ -42,18 +42,13 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
       )}
 
       <div className="p-5 flex flex-col flex-1">
-        <div className="flex items-start justify-between gap-2 mb-2">
-          <h3 className="text-sm font-semibold font-mono leading-snug" style={{ color: '#050505' }}>
-            {project.title}
-          </h3>
-          <span className="text-xs font-mono flex-shrink-0 mt-0.5" style={{ color: 'rgba(5,5,5,0.4)' }}>
-            {project.year}
-          </span>
-        </div>
+        <h3 className="text-sm font-semibold font-mono leading-snug mb-2" style={{ color: '#04080F' }}>
+          {project.title}
+        </h3>
 
         <p
           className="text-xs font-mono leading-relaxed mb-4 flex-1 line-clamp-4"
-          style={{ color: 'rgba(5,5,5,0.6)' }}
+          style={{ color: 'rgba(4,8,15,0.6)' }}
         >
           {project.summary}
         </p>
@@ -64,8 +59,8 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
               key={tech}
               className="text-xs font-mono px-2 py-0.5 rounded-sm border"
               style={{
-                borderColor: 'rgba(27,154,170,0.5)',
-                color: '#1B9AAA',
+                borderColor: 'rgba(80,125,188,0.5)',
+                color: '#507DBC',
               }}
             >
               {tech}
@@ -80,9 +75,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-xs font-mono transition-colors duration-150"
-              style={{ color: 'rgba(5,5,5,0.5)' }}
+              style={{ color: 'rgba(4,8,15,0.5)' }}
               onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-accent)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(5,5,5,0.5)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(4,8,15,0.5)')}
             >
               <ExternalIcon />
               Live
@@ -94,9 +89,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-xs font-mono transition-colors duration-150"
-              style={{ color: 'rgba(5,5,5,0.5)' }}
+              style={{ color: 'rgba(4,8,15,0.5)' }}
               onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-accent)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(5,5,5,0.5)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(4,8,15,0.5)')}
             >
               <GithubIcon />
               Code
@@ -108,9 +103,9 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-xs font-mono transition-colors duration-150"
-              style={{ color: 'rgba(5,5,5,0.5)' }}
+              style={{ color: 'rgba(4,8,15,0.5)' }}
               onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-accent)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(5,5,5,0.5)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(4,8,15,0.5)')}
             >
               <BookIcon />
               Case Study

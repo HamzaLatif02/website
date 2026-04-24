@@ -33,21 +33,23 @@ const EducationSection: React.FC = () => (
           key={edu.degree}
           className="sm:grid sm:grid-cols-[140px_1fr] gap-6 rounded-lg p-4 -mx-4"
           style={{ transition: 'background-color 0.15s ease' }}
-          onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.03)')}
+          onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'rgba(80,125,188,0.06)')}
           onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'transparent')}
         >
-          <p className="text-xs font-mono mt-1 mb-2 sm:mb-0 whitespace-nowrap" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          <p className="text-xs font-mono mt-1 mb-2 sm:mb-0 whitespace-nowrap" style={{ color: 'rgba(218,227,229,0.3)' }}>
             {edu.period}
           </p>
           <div>
-            <h3 className="text-sm font-semibold font-mono text-white mb-0.5">{edu.degree}</h3>
+            <h3 className="text-sm font-semibold font-mono mb-0.5" style={{ color: 'var(--color-muted)' }}>
+              {edu.degree}
+            </h3>
             <p className="text-sm font-mono mb-1.5" style={{ color: 'var(--color-accent)' }}>
               {edu.institution}
             </p>
-            <p className="text-xs font-mono mb-3" style={{ color: 'rgba(255,255,255,0.35)' }}>
+            <p className="text-xs font-mono mb-3" style={{ color: 'rgba(218,227,229,0.35)' }}>
               {edu.grade}
             </p>
-            <p className="text-xs font-mono leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>
+            <p className="text-xs font-mono leading-relaxed" style={{ color: 'rgba(218,227,229,0.45)' }}>
               {edu.description}
             </p>
           </div>

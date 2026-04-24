@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'p-bg': '#050505',
-        'p-accent': '#1B9AAA',
-        'p-surface': '#DDDBCB',
-        'p-bg-alt': '#F5F1E3',
-        'p-text': '#FFFFFF',
+        'p-bg': '#04080F',
+        'p-accent': '#507DBC',
+        'p-surface': '#A1C6EA',
+        'p-bg-alt': '#BBD1EA',
+        'p-muted': '#DAE3E5',
       },
       fontFamily: {
         display: ['Syne', 'sans-serif'],

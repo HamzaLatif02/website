@@ -29,7 +29,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--color-bg)', color: 'var(--color-muted)' }}>
       <div className="max-w-screen-xl mx-auto lg:grid lg:grid-cols-[420px_1fr]">
         <LeftPanel activeSection={activeSection} />
         <main className="px-6 py-16 lg:px-16 lg:py-24">
