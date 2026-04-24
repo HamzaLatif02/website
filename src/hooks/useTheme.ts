@@ -4,9 +4,10 @@ export function useTheme() {
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('theme');
-      return stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      if (stored) return stored === 'dark';
+      return true; // default to dark mode
     }
-    return false;
+    return true;
   });
 
   useEffect(() => {

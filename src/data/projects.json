@@ -1,44 +1,107 @@
 [
   {
+    "id": "roleprint",
+    "title": "Roleprint",
+    "summary": "Live NLP analytics platform tracking skill demand across 10 tech roles. Scrapes 6,000+ job postings every 6 hours from Reed, RemoteOK, and Adzuna, runs each through a 4-stage NLP pipeline (spaCy skill extraction, NLTK VADER sentiment, BERTopic topic modelling, NER), and surfaces real-time trends including week-over-week skill momentum, emerging skills, role comparisons, and a skill gap analyser.",
+    "year": 2025,
+    "featured": true,
+    "tags": ["Full-Stack", "ML & AI", "NLP"],
+    "technologies": ["FastAPI", "Python", "spaCy", "NLTK", "BERTopic", "PostgreSQL", "Redis", "React", "Recharts", "Railway", "Vercel", "Supabase"],
+    "image": "/screenshots/roleprint/overview.png",
+    "links": {
+      "live": "https://roleprint.xyz",
+      "code": "https://github.com/HamzaLatif02/roleprint",
+      "caseStudy": null
+    }
+  },
+  {
+    "id": "finpipe",
+    "title": "Financial Pipeline",
+    "summary": "Full-stack financial analysis platform. Enter any Yahoo Finance ticker — stocks, ETFs, forex, crypto, commodities — and get 8 quantitative metrics, 6 charts, and a downloadable PDF report with AI-generated descriptions. Features include asset comparison mode with Pearson correlation, scheduled email delivery with double opt-in, real-time WebSocket progress, 1-hour report caching, rate limiting, and an interactive OpenAPI dashboard.",
+    "year": 2025,
+    "featured": true,
+    "tags": ["Full-Stack", "Finance", "AI"],
+    "technologies": ["Flask", "Python", "yfinance", "pandas", "matplotlib", "Claude AI", "Flask-SocketIO", "APScheduler", "React", "Docker", "PostgreSQL", "GitHub Actions"],
+    "image": "/screenshots/finpipe/dashboard.png",
+    "links": {
+      "live": "https://finpipe.xyz",
+      "code": "https://github.com/HamzaLatif02/finpipe",
+      "caseStudy": null
+    }
+  },
+  {
     "id": "legal-temporal-reasoning",
     "title": "Legal Temporal Reasoning Benchmark",
-    "summary": "Benchmarking LLMs (GPT, Claude, Gemini, Llama, Mistral, Qwen) on UK & GDPR temporal reasoning with 12 task types; Data pipelines in Python; Visualised insights for 6 research questions using Tableau.",
-    "year": 2024,
-    "tags": ["ML", "NLP", "DataViz"],
-    "technologies": ["Python", "NLP", "LLMs", "Data Pipelines", "Tableau"],
-    "image": "https://images.pexels.com/photos/159832/justice-law-case-hearing-159832.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "summary": "MSc research project benchmarking 6 LLMs (GPT-4o, Claude, Gemini, Llama, Mistral, Qwen) on temporal reasoning across 300+ years of UK legislation and GDPR. Built a custom evaluation dataset with 12 task types spanning numerical, semantic, and timeline categories. Constructed an end-to-end data pipeline from UK legislation APIs, and visualised 6 research questions using Tableau.",
+    "year": 2025,
+    "featured": false,
+    "tags": ["Research", "NLP", "ML & AI"],
+    "technologies": ["Python", "OpenAI API", "Anthropic API", "Gemini API", "Together.ai", "Tableau", "pandas"],
+    "image": "/screenshots/legal/results.png",
     "links": {
-      "code": "https://github.com/HamzaLatif02/llm_chronological_legal_benchmark",
       "live": null,
+      "code": "https://github.com/HamzaLatif02/llm_chronological_legal_benchmark",
       "caseStudy": null
     }
   },
   {
     "id": "deepfake-detection",
-    "title": "Deepfake Detection Model", 
-    "summary": "Multi-class facial deepfake classifier (real/deepfake/faceswap) using ResNet variants; FaceForensics++ dataset; Python GUI for inference.",
+    "title": "Deepfake Detection Model",
+    "summary": "Ternary deepfake classifier (real / deepfake / faceswap) trained on FaceForensics++ with a systematic comparison of 8 model architectures: ResNet-34, ResNet-50, ResNet-101, ResNet-152, and their SE-ResNet counterparts with squeeze-and-excitation attention. Includes data preprocessing, frame extraction pipeline, per-architecture training notebooks, and a Python GUI for real-time inference.",
     "year": 2024,
-    "tags": ["ML", "CV"],
-    "technologies": ["TensorFlow", "PyTorch", "Computer Vision", "GUI"],
+    "featured": false,
+    "tags": ["ML & AI", "Computer Vision"],
+    "technologies": ["TensorFlow", "PyTorch", "ResNet", "SE-ResNet", "FaceForensics++", "Python", "Tkinter"],
     "image": "https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=800",
     "links": {
-      "code": "https://github.com/HamzaLatif02/DeepfakeDetection",
       "live": null,
+      "code": "https://github.com/HamzaLatif02/DeepfakeDetection",
       "caseStudy": null
     }
   },
   {
     "id": "airvia-ticket-sales",
     "title": "AirVia Air Ticket Sales",
-    "summary": "Java + MySQL desktop system for ticket sales, reporting, and UI via Swing; Group project (developer role).",
+    "summary": "Java desktop application for an airline ticket sales business, built as a team project. Full layered architecture across 6 packages — GUI, Customer, DB, Ticket, Sale, and Report — with a MySQL backend and Swing UI. Supports role-based access for customers, travel advisors, and office managers, including ticket sales, account management, discount plans, commission reporting, and Excel export.",
     "year": 2023,
-    "tags": ["Systems"],
-    "technologies": ["Java", "MySQL", "Swing", "Software Eng"],
-    "image": "https://images.pexels.com/photos/723240/pexels-photo-723240.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "featured": false,
+    "tags": ["Full-Stack", "Systems"],
+    "technologies": ["Java", "MySQL", "Swing", "JDBC", "OOP design patterns"],
+    "image": "/screenshots/airvia/screenshot.png",
     "links": {
-      "code": "https://github.com/HamzaLatif02/AirViaLtd_Project",
       "live": null,
+      "code": "https://github.com/HamzaLatif02/AirViaLtd_Project",
       "caseStudy": null
+    }
+  },
+  {
+    "id": "bigmart-sales",
+    "title": "BigMart Sales Prediction",
+    "summary": "End-to-end ML pipeline in R to predict product-level sales across BigMart outlets. Domain-driven hypothesis generation across store, product, customer, and macro levels. Engineered 5 new features (item category, outlet age, price per weight, MRP clusters, log transforms) and compared 5 models. Random Forest achieved the best RMSE of 1086 on validation and 1158 on the competition leaderboard.",
+    "year": 2023,
+    "featured": false,
+    "tags": ["Data Science", "ML & AI"],
+    "technologies": ["R", "XGBoost", "Random Forest", "ggplot2", "caret", "renv", "data.table"],
+    "image": "/screenshots/bigmart/results.png",
+    "links": {
+      "live": null,
+      "code": "https://github.com/HamzaLatif02/BigMart_Sales_Prediction",
+      "caseStudy": "https://absorbing-sight-c8d.notion.site/Big-Mart-Sales-Prediction-30b705565b448081a254cf7eef7b9b1a"
+    }
+  },
+  {
+    "id": "loan-prediction",
+    "title": "Loan Eligibility Prediction",
+    "summary": "Binary classification pipeline for loan approval prediction. Feature engineering grounded in financial domain knowledge: EMI, Balance Income, and Total Income features improved accuracy by 2–3%. Compared 5 models (Logistic Regression, Decision Tree, Random Forest, XGBoost, and k-fold cross-validation variants). Logistic Regression selected as the final model for its superior generalisation over ensemble methods.",
+    "year": 2023,
+    "featured": false,
+    "tags": ["Data Science", "ML & AI"],
+    "technologies": ["Python", "scikit-learn", "XGBoost", "pandas", "NumPy", "Matplotlib"],
+    "image": "https://images.pexels.com/photos/164527/pexels-photo-164527.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "links": {
+      "live": null,
+      "code": "https://github.com/HamzaLatif02/Loan_Prediction",
+      "caseStudy": "https://absorbing-sight-c8d.notion.site/Loan-Eligibility-Prediction-306705565b44803490aaebb09ee5c3de"
     }
   }
 ]

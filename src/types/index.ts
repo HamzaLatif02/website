@@ -3,6 +3,7 @@ export interface Project {
   title: string;
   summary: string;
   year: number;
+  featured?: boolean;
   tags: string[];
   technologies: string[];
   image: string;

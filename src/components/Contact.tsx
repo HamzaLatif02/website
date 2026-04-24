@@ -1,265 +1,241 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Mail, Linkedin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Linkedin, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { ContactForm } from '../types';
 
+// ⚠️  Replace this with your Formspree form ID.
+// Create a free form at https://formspree.io and paste the ID here.
+const FORMSPREE_ID = 'mqewwoaz';
+
+type Status = 'idle' | 'sending' | 'success' | 'error';
+
 const Contact: React.FC = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  const [form, setForm] = useState<ContactForm>({
-    name: '',
-    email: '',
-    message: ''
-  });
-
+  const [form, setForm] = useState<ContactForm>({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState<Partial<ContactForm>>({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>('idle');
 
-  const validateForm = (): boolean => {
+  const validate = (): boolean => {
     const newErrors: Partial<ContactForm> = {};
-
-    if (!form.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-
+    if (!form.name.trim()) newErrors.name = 'Name is required';
     if (!form.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      newErrors.email = 'Please enter a valid email';
+      newErrors.email = 'Enter a valid email address';
     }
-
     if (!form.message.trim()) {
       newErrors.message = 'Message is required';
     } else if (form.message.trim().length < 10) {
       newErrors.message = 'Message must be at least 10 characters';
     }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (validateForm()) {
-      // Since this is client-side only, we'll just show a success message
-      setIsSubmitted(true);
-      setForm({ name: '', email: '', message: '' });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => setIsSubmitted(false), 5000);
-    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
-    
-    // Clear error when user starts typing
     if (errors[name as keyof ContactForm]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    setStatus('sending');
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
+      });
+      if (res.ok) {
+        setStatus('success');
+        setForm({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
+
   return (
-    <section id="contact" className="py-24 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-32 bg-white dark:bg-navy-card">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Let's Connect
+          <p className="section-label mb-4">Contact</p>
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-gray-900 dark:text-white">
+            Let's work together.
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Interested in collaboration, have a project in mind, or just want to discuss data science? 
-            I'd love to hear from you.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+          {/* Left — copy + links */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -24 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8"
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="lg:col-span-2 space-y-8"
           >
-            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
-              {isSubmitted && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700 rounded-lg flex items-center gap-3"
-                >
-                  <CheckCircle className="text-green-600 dark:text-green-400" size={20} />
-                  <span className="text-green-800 dark:text-green-300">
-                    Thank you for your message! I'll get back to you soon.
-                  </span>
-                </motion.div>
-              )}
+            <p className="text-lg text-gray-600 dark:text-slate-400 leading-relaxed">
+              I'm open to full-time roles, freelance projects, and interesting collaborations.
+              Whether you have a specific opportunity or just want to connect — send a message
+              and I'll get back to you within 24 hours.
+            </p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label 
-                    htmlFor="name" 
-                    className="block text-sm font-semibold text-gray-900 dark:text-white mb-2"
-                  >
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200 focus:outline-none focus:ring-0 ${
-                      errors.name
-                        ? 'border-red-300 focus:border-red-500'
-                        : 'border-gray-300 dark:border-gray-600 focus:border-primary'
-                    } bg-white dark:bg-gray-800 text-gray-900 dark:text-white`}
-                    placeholder="Enter your full name"
-                  />
-                  {errors.name && (
-                    <div className="mt-2 flex items-center gap-2 text-red-600 dark:text-red-400 text-sm">
-                      <AlertCircle size={16} />
-                      {errors.name}
-                    </div>
-                  )}
+            <div className="space-y-4">
+              <a
+                href="mailto:lhamza1020@gmail.com"
+                className="flex items-center gap-4 p-5 rounded-xl border border-gray-200 dark:border-navy-border bg-gray-50 dark:bg-navy hover:border-primary/40 dark:hover:border-primary/40 transition-all duration-200 group"
+              >
+                <div className="p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/15 transition-colors">
+                  <Mail className="text-primary-light w-5 h-5" />
                 </div>
-
                 <div>
-                  <label 
-                    htmlFor="email" 
-                    className="block text-sm font-semibold text-gray-900 dark:text-white mb-2"
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200 focus:outline-none focus:ring-0 ${
-                      errors.email
-                        ? 'border-red-300 focus:border-red-500'
-                        : 'border-gray-300 dark:border-gray-600 focus:border-primary'
-                    } bg-white dark:bg-gray-800 text-gray-900 dark:text-white`}
-                    placeholder="your.email@example.com"
-                  />
-                  {errors.email && (
-                    <div className="mt-2 flex items-center gap-2 text-red-600 dark:text-red-400 text-sm">
-                      <AlertCircle size={16} />
-                      {errors.email}
-                    </div>
-                  )}
+                  <p className="text-xs text-gray-400 dark:text-slate-500 font-medium mb-0.5">Email</p>
+                  <p className="text-gray-900 dark:text-white font-semibold text-sm">
+                    lhamza1020@gmail.com
+                  </p>
                 </div>
+              </a>
 
+              <a
+                href="https://www.linkedin.com/in/latif-hamza/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-5 rounded-xl border border-gray-200 dark:border-navy-border bg-gray-50 dark:bg-navy hover:border-primary/40 dark:hover:border-primary/40 transition-all duration-200 group"
+              >
+                <div className="p-2.5 rounded-lg bg-primary/10 group-hover:bg-primary/15 transition-colors">
+                  <Linkedin className="text-primary-light w-5 h-5" />
+                </div>
                 <div>
-                  <label 
-                    htmlFor="message" 
-                    className="block text-sm font-semibold text-gray-900 dark:text-white mb-2"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    rows={5}
-                    className={`w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200 focus:outline-none focus:ring-0 resize-none ${
-                      errors.message
-                        ? 'border-red-300 focus:border-red-500'
-                        : 'border-gray-300 dark:border-gray-600 focus:border-primary'
-                    } bg-white dark:bg-gray-800 text-gray-900 dark:text-white`}
-                    placeholder="Tell me about your project, collaboration idea, or just say hello..."
-                  />
-                  {errors.message && (
-                    <div className="mt-2 flex items-center gap-2 text-red-600 dark:text-red-400 text-sm">
-                      <AlertCircle size={16} />
-                      {errors.message}
-                    </div>
-                  )}
+                  <p className="text-xs text-gray-400 dark:text-slate-500 font-medium mb-0.5">LinkedIn</p>
+                  <p className="text-gray-900 dark:text-white font-semibold text-sm">
+                    linkedin.com/in/latif-hamza
+                  </p>
                 </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-primary text-white px-6 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all duration-200 hover:scale-[1.02] shadow-lg flex items-center justify-center gap-2"
-                >
-                  <Send size={20} />
-                  Send Message
-                </button>
-              </form>
+              </a>
             </div>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* Right — form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 24 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-8"
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="lg:col-span-3"
           >
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-                  Get In Touch
-                </h3>
-                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  I'm always excited to discuss new opportunities in data science, machine learning, 
-                  or software development. Whether you have a project in mind, want to collaborate, 
-                  or just want to connect with a fellow data enthusiast, don't hesitate to reach out.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                <a
-                  href="mailto:lhamza1020@gmail.com"
-                  className="flex items-center gap-4 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+            <div className="p-8 rounded-2xl border border-gray-200 dark:border-navy-border bg-gray-50 dark:bg-navy">
+              {status === 'success' ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex flex-col items-center text-center py-12 gap-4"
                 >
-                  <div className="p-3 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors duration-200">
-                    <Mail className="text-primary w-6 h-6" />
+                  <div className="p-4 rounded-full bg-emerald-500/10">
+                    <CheckCircle className="text-emerald-400 w-10 h-10" />
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Email</h4>
-                    <p className="text-gray-600 dark:text-gray-300">lhamza1020@gmail.com</p>
-                  </div>
-                </a>
+                  <h3 className="font-display font-bold text-2xl text-gray-900 dark:text-white">
+                    Message sent!
+                  </h3>
+                  <p className="text-gray-600 dark:text-slate-400">
+                    Thanks for reaching out. I'll get back to you within 24 hours.
+                  </p>
+                  <button
+                    onClick={() => setStatus('idle')}
+                    className="mt-2 text-sm text-primary dark:text-primary-light hover:underline"
+                  >
+                    Send another message
+                  </button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                  {status === 'error' && (
+                    <div className="flex items-center gap-3 p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
+                      <AlertCircle size={16} className="flex-shrink-0" />
+                      Something went wrong. Please try again or email me directly.
+                    </div>
+                  )}
 
-                <a
-                  href="https://www.linkedin.com/in/latif-hamza/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
-                >
-                  <div className="p-3 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors duration-200">
-                    <Linkedin className="text-primary w-6 h-6" />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <Field
+                      label="Your Name"
+                      id="name"
+                      type="text"
+                      placeholder="Jane Smith"
+                      value={form.name}
+                      error={errors.name}
+                      onChange={handleChange}
+                    />
+                    <Field
+                      label="Email Address"
+                      id="email"
+                      type="email"
+                      placeholder="jane@company.com"
+                      value={form.email}
+                      error={errors.email}
+                      onChange={handleChange}
+                    />
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">LinkedIn</h4>
-                    <p className="text-gray-600 dark:text-gray-300">Connect with me professionally</p>
-                  </div>
-                </a>
-              </div>
 
-              <div className="bg-primary/5 dark:bg-primary/10 p-6 rounded-xl">
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
-                  Response Time
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300">
-                  I typically respond to messages within 24-48 hours. For urgent matters, 
-                  feel free to reach out via LinkedIn for faster response.
-                </p>
-              </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={6}
+                      value={form.message}
+                      onChange={handleChange}
+                      placeholder="Tell me about the role, project, or collaboration..."
+                      className={`w-full px-4 py-3 rounded-xl text-sm resize-none input-dark ${
+                        errors.message
+                          ? 'border-red-500/50 focus:border-red-500'
+                          : ''
+                      }`}
+                    />
+                    {errors.message && (
+                      <p className="mt-1.5 flex items-center gap-1.5 text-red-400 text-xs">
+                        <AlertCircle size={13} />
+                        {errors.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={status === 'sending'}
+                    className="btn-primary w-full flex items-center justify-center gap-2.5 py-4 rounded-xl text-base disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
+                  >
+                    {status === 'sending' ? (
+                      <>
+                        <Loader2 size={18} className="animate-spin" />
+                        Sending…
+                      </>
+                    ) : (
+                      <>
+                        <Send size={18} />
+                        Send Message
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
           </motion.div>
         </div>
@@ -267,5 +243,40 @@ const Contact: React.FC = () => {
     </section>
   );
 };
+
+interface FieldProps {
+  label: string;
+  id: string;
+  type: string;
+  placeholder: string;
+  value: string;
+  error?: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const Field: React.FC<FieldProps> = ({ label, id, type, placeholder, value, error, onChange }) => (
+  <div>
+    <label htmlFor={id} className="block text-sm font-semibold text-gray-700 dark:text-slate-300 mb-2">
+      {label}
+    </label>
+    <input
+      id={id}
+      name={id}
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      className={`w-full px-4 py-3 rounded-xl text-sm input-dark ${
+        error ? 'border-red-500/50 focus:border-red-500' : ''
+      }`}
+    />
+    {error && (
+      <p className="mt-1.5 flex items-center gap-1.5 text-red-400 text-xs">
+        <AlertCircle size={13} />
+        {error}
+      </p>
+    )}
+  </div>
+);
 
 export default Contact;
