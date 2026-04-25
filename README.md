@@ -1,4 +1,5 @@
-# hamzalatif.dev
+![Logo](public/favicon.png)
+# [hamzalatif.xyz](https://hamzalatif.xyz/)
 
 Personal portfolio website built with React, TypeScript, Vite, and Tailwind CSS.
 
