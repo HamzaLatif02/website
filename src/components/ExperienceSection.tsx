@@ -2,16 +2,15 @@ import React from 'react';
 
 const EXPERIENCE = [
   {
-    period: 'Jun 2025 — Present',
-    title: 'Data Analyst',
-    company: 'Premier Services Associate Ltd',
+    period: 'Aug 2025 — Present',
+    title: 'Software Engineer',
+    company: 'Premier Services AI',
     bullets: [
-      'Integrated 4+ third-party APIs (OpenAI, Claude, Gemini, Together AI), handling 1,000+ requests during testing, by implementing authentication, retry logic, and structured response parsing for reliable automation.',
-      'Designed modular data pipelines processing 10k+ data points across structured and unstructured datasets, improving code maintainability and reducing iteration time for experiments by 40%.',
-      'Developed automated evaluation and reporting components, generating 500+ model outputs and reducing manual analysis effort by 50% through reproducible scripts.',
-      'Used Google Cloud Platform for data storage and processing, enabling scalable experimentation and reducing local compute dependency for large dataset processing.',
-      'Improved system reliability by identifying and resolving key pipeline and API issues (e.g., rate limits, inconsistent outputs), reducing runtime errors by 30%.',
-      'Collaborated with cross-functional teams to deliver 3+ end-to-end analytical workflows under tight deadlines, improving documentation coverage and reducing onboarding time for new contributors.',
+      'Developed and deployed live production platforms, processing 50,000+ records and reducing analysis workflows from hours to under 30 seconds through Python, React, PostgreSQL, WebSockets, and Docker-based architectures.',
+      'Engineered end-to-end NLP and data pipelines using spaCy, NLTK, BERTopic, and PostgreSQL, enabling automated trend analysis and structured reporting across 10+ datasets and analytical workflows.',
+      'Integrated 4+ third-party AI APIs (OpenAI, Claude, Gemini, Together AI), handling 1,000+ requests during testing by implementing authentication, retry logic, and structured response parsing for reliable automation.',
+      'Developed a scalable legal AI benchmarking platform, reducing model evaluation time by 70% through automated ETL pipelines, dataset generation, evaluation workflows, and reporting systems.',
+      'Improved system reliability by reducing runtime failures by 30% through implementing robust error handling, fallback logic, database persistence strategies, and escalation mechanisms in high-volume production environments.',
     ],
   },
   {

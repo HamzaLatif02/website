@@ -22,7 +22,7 @@ const LeftPanel: React.FC<Props> = ({ activeSection }) => {
           Hamza Latif
         </h1>
         <p className="text-sm font-mono mb-6" style={{ color: 'var(--color-accent)' }}>
-          Software Engineer · Data Scientist
+          Software Engineer
         </p>
         <p className="text-xs font-mono leading-relaxed max-w-xs" style={{ color: 'rgba(218,227,229,0.45)' }}>
           MSc Data Science (Distinction), King's College London.

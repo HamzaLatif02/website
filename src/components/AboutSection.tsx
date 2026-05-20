@@ -10,18 +10,18 @@ const AboutSection: React.FC = () => (
     </p>
     <div className="space-y-5 text-sm font-mono leading-relaxed max-w-xl" style={{ color: 'rgba(218,227,229,0.55)' }}>
       <p>
-        I'm a software engineer and data scientist based in the UK, with an MSc in Data Science
-        (Distinction) from King's College London and a BSc in Computer Science (First Class) from
-        City, University of London.
+        I'm a software engineer based in the UK, with an MSc in Data Science (Distinction) from
+        King's College London and a BSc in Computer Science (First Class) from City, University of
+        London.
       </p>
       <p>
-        I build end-to-end systems — from scrapers and ML pipelines to React dashboards and REST
-        APIs — with a focus on correctness, observability, and clean design. Recent work includes a
-        real-time NLP job market analytics platform and a financial analysis tool that pairs
-        quantitative metrics with AI-generated report narratives.
+        I build end-to-end systems — backend APIs, NLP pipelines, AI agents, and React dashboards
+        — with a focus on reliability, clean architecture, and real-world impact. Recent work
+        includes an AI job application agent, a real-time NLP job market analytics platform, and a
+        financial analysis tool with AI-generated report narratives.
       </p>
       <p>
-        I'm open to full-time roles in software engineering, data analysis, and data science.
+        I'm actively seeking full-time software engineering roles.
       </p>
       <p>
         <a
