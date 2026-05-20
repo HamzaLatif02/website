@@ -1,5 +1,20 @@
 [
   {
+    "id": "loophire",
+    "title": "Loophire",
+    "summary": "Full-stack AI job application agent that automates the entire application workflow. Upload your CV once — a 6-agent pipeline scores job fit (0-100 with keyword gap analysis), tailors your CV, generates a personalised cover letter, researches the company via live web search, and prepares interview questions, all in under 30 seconds with real-time WebSocket progress. Features prompt caching for ~90% cost reduction, drag-and-drop Kanban tracking, multi-CV management, LaTeX PDF export, and a Chrome extension for LinkedIn.",
+    "year": 2025,
+    "featured": true,
+    "tags": ["Full-Stack", "ML & AI", "AI Agents"],
+    "technologies": ["FastAPI", "Python", "React", "PostgreSQL", "Redis", "Anthropic Claude", "Tailwind CSS", "Railway", "Vercel", "SQLAlchemy", "React Query", "WebSocket"],
+    "image": "/screenshots/loophire/overview.png",
+    "links": {
+      "live": "https://loophire.xyz",
+      "code": "https://github.com/HamzaLatif02/loophire",
+      "caseStudy": null
+    }
+  },
+  {
     "id": "roleprint",
     "title": "Roleprint",
     "summary": "Live NLP analytics platform tracking skill demand across 10 tech roles. Scrapes 6,000+ job postings every 6 hours from Reed, RemoteOK, and Adzuna, runs each through a 4-stage NLP pipeline (spaCy skill extraction, NLTK VADER sentiment, BERTopic topic modelling, NER), and surfaces real-time trends including week-over-week skill momentum, emerging skills, role comparisons, and a skill gap analyser.",
