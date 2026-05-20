@@ -8,7 +8,7 @@ const AboutSection: React.FC = () => (
     >
       About
     </p>
-    <div className="space-y-5 text-sm font-mono leading-relaxed max-w-xl" style={{ color: 'rgba(218,227,229,0.55)' }}>
+    <div className="space-y-5 text-base font-mono leading-relaxed max-w-xl" style={{ color: 'rgba(218,227,229,0.55)' }}>
       <p>
         I'm a software engineer based in the UK, with an MSc in Data Science (Distinction) from
         King's College London and a BSc in Computer Science (First Class) from City, University of

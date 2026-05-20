@@ -46,15 +46,15 @@ const ExperienceSection: React.FC = () => (
             {role.period}
           </p>
           <div>
-            <h3 className="text-sm font-semibold font-mono mb-0.5" style={{ color: 'var(--color-muted)' }}>
+            <h3 className="text-base font-semibold font-mono mb-0.5" style={{ color: 'var(--color-muted)' }}>
               {role.title}
             </h3>
-            <p className="text-sm font-mono mb-3" style={{ color: 'var(--color-accent)' }}>
+            <p className="text-base font-mono mb-3" style={{ color: 'var(--color-accent)' }}>
               {role.company}
             </p>
             <ul className="space-y-2">
               {role.bullets.map((bullet, i) => (
-                <li key={i} className="flex gap-2 text-xs font-mono leading-relaxed" style={{ color: 'rgba(218,227,229,0.45)' }}>
+                <li key={i} className="flex gap-2 text-sm font-mono leading-relaxed" style={{ color: 'rgba(218,227,229,0.45)' }}>
                   <span className="flex-shrink-0 mt-1.5 w-1 h-1 rounded-full" style={{ backgroundColor: 'var(--color-accent)' }} />
                   {bullet}
                 </li>

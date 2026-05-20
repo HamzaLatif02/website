@@ -21,10 +21,10 @@ const LeftPanel: React.FC<Props> = ({ activeSection }) => {
         <h1 className="font-display text-4xl font-bold leading-tight mb-2" style={{ color: 'var(--color-muted)' }}>
           Hamza Latif
         </h1>
-        <p className="text-sm font-mono mb-6" style={{ color: 'var(--color-accent)' }}>
+        <p className="text-base font-mono mb-6" style={{ color: 'var(--color-accent)' }}>
           Software Engineer
         </p>
-        <p className="text-xs font-mono leading-relaxed max-w-xs" style={{ color: 'rgba(218,227,229,0.45)' }}>
+        <p className="text-sm font-mono leading-relaxed max-w-xs" style={{ color: 'rgba(218,227,229,0.45)' }}>
           MSc Data Science (Distinction), King's College London.
           Building full-stack products and ML systems.
         </p>

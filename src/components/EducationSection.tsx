@@ -40,16 +40,16 @@ const EducationSection: React.FC = () => (
             {edu.period}
           </p>
           <div>
-            <h3 className="text-sm font-semibold font-mono mb-0.5" style={{ color: 'var(--color-muted)' }}>
+            <h3 className="text-base font-semibold font-mono mb-0.5" style={{ color: 'var(--color-muted)' }}>
               {edu.degree}
             </h3>
-            <p className="text-sm font-mono mb-1.5" style={{ color: 'var(--color-accent)' }}>
+            <p className="text-base font-mono mb-1.5" style={{ color: 'var(--color-accent)' }}>
               {edu.institution}
             </p>
-            <p className="text-xs font-mono mb-3" style={{ color: 'rgba(218,227,229,0.35)' }}>
+            <p className="text-sm font-mono mb-3" style={{ color: 'rgba(218,227,229,0.35)' }}>
               {edu.grade}
             </p>
-            <p className="text-xs font-mono leading-relaxed" style={{ color: 'rgba(218,227,229,0.45)' }}>
+            <p className="text-sm font-mono leading-relaxed" style={{ color: 'rgba(218,227,229,0.45)' }}>
               {edu.description}
             </p>
           </div>

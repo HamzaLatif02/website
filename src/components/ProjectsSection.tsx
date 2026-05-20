@@ -42,12 +42,12 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
       )}
 
       <div className="p-5 flex flex-col flex-1">
-        <h3 className="text-sm font-semibold font-mono leading-snug mb-2" style={{ color: '#04080F' }}>
+        <h3 className="text-base font-semibold font-mono leading-snug mb-2" style={{ color: '#04080F' }}>
           {project.title}
         </h3>
 
         <p
-          className="text-xs font-mono leading-relaxed mb-4 flex-1 line-clamp-4"
+          className="text-sm font-mono leading-relaxed mb-4 flex-1 line-clamp-4"
           style={{ color: 'rgba(4,8,15,0.6)' }}
         >
           {project.summary}
