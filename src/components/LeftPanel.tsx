@@ -79,13 +79,13 @@ const LeftPanel: React.FC<Props> = ({ activeSection }) => {
     >
       <div className="relative z-10 lg:flex lg:flex-col lg:justify-between lg:h-full">
         <div>
-          <h1 className="font-display text-4xl font-bold leading-tight mb-2" style={{ color: 'var(--color-muted)' }}>
+          <h1 className="font-display text-4xl font-bold leading-tight mb-2 w-fit px-6 py-4 rounded-2xl bg-[#04080f]/70 backdrop-blur-sm" style={{ color: 'var(--color-muted)' }}>
             Hamza Latif
           </h1>
-          <p className="text-base font-mono mb-6" style={{ color: 'var(--color-accent)' }}>
+          <p className="text-base font-mono mb-6 w-fit px-5 py-3 rounded-xl bg-[#04080f]/60 backdrop-blur-sm" style={{ color: 'var(--color-accent)' }}>
             Software Engineer
           </p>
-          <p className="text-sm font-mono leading-relaxed max-w-xs" style={{ color: 'rgba(218,227,229,0.45)' }}>
+          <p className="text-sm font-mono leading-relaxed max-w-xs px-4 py-2 rounded-lg bg-[#04080f]/50 backdrop-blur-sm" style={{ color: 'rgba(218,227,229,0.45)' }}>
             MSc Data Science (Distinction), King's College London.
             Building full-stack products and ML systems.
           </p>
