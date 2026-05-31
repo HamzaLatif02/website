@@ -30,7 +30,7 @@ export default function VantaBackground() {
   return (
     <div
       ref={el}
-      style={{ position: 'fixed', inset: 0, zIndex: -1 }}
+      style={{ position: 'fixed', inset: 0, zIndex: 0 }}
     />
   );
 }

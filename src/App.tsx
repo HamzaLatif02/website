@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="min-h-screen" style={{ color: 'var(--color-muted)' }}>
       <VantaBackground />
-      <div className="max-w-screen-xl mx-auto lg:grid lg:grid-cols-[420px_1fr]">
+      <div className="max-w-screen-xl mx-auto lg:grid lg:grid-cols-[420px_1fr]" style={{ position: 'relative', zIndex: 1 }}>
         <LeftPanel activeSection={activeSection} />
         <main className="px-6 py-16 lg:px-16 lg:py-24">
           <AboutSection />
